@@ -5,4 +5,4 @@
 Для верстки использованы Flex и Grid сетки, а сам сайт "адаптивный", часть функций реализована с помощью Java скрипта.
 
 **Сайт**
-Ссылка https://ilya-cherevko.github.io/russian-travel/
+Ссылка https://ilya-cherevko.github.io/mesto/
