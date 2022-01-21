@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./pages/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto Russia</title>
+    <base target="_blank">
+  </head>
+  <body class="page">
+      <div class="container">
+        <header class="header">
+          <div class="header__logo"></div>
+        </header>
+        <main class="main">
+          <section class="profile">
+              <img class="profile__avatar" src="images/Kusto.jpg" alt="Жак ив Кусто"> 
+                <div class="profile__info">
+                   <div class="profile__name-container">
+                     <h1 class="profile__name">Жак ив Кусто</h1>
+                     <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
+                   </div>
+                   <p class="profile__position">путешественник</p>
+                </div>
+              <button class="profile__add-button" type="button" aria-label="Добавить"></button>
+          </section>
+          <section class="elements">
+              <figure class="element">
+                <div class="element__image-container">
+                  <img class="element__image" src="./images/karachaevo-cherkessiy.jpg" alt="Карачево-Черкессия">
+                </div>
+                <div class="element__info-container">
+                  <h2 class="element__name">Карачаево-Черкессия</h2>
+                  <div class="element__like-container">
+                    <button class="element__like" type="button" aria-label="нравится"></button>
+                  </div>
+                  </div>
+              </figure>
+              <figure class="element">
+                <div class="element__image-container">
+                  <img class="element__image" src="./images/elbrus.jpg" alt="Карачево-Черкессия">
+                </div>
+                <div class="element__info-container">
+                  <h2 class="element__name">Эльбрус</h2>
+                  <div class="element__like-container">
+                    <button class="element__like" type="button" aria-label="нравится"></button>
+                  </div>
+                  </div>
+              </figure>
+              <figure class="element">
+                <div class="element__image-container">
+                  <img class="element__image" src="./images/dombay.jpg" alt="Карачево-Черкессия">
+                </div>
+                <div class="element__info-container">
+                  <h2 class="element__name">Домбай</h2>
+                  <div class="element__like-container">
+                    <button class="element__like" type="button" aria-label="нравится"></button>
+                  </div>
+                  </div>
+              </figure>
+              <figure class="element">
+                <div class="element__image-container">
+                  <img class="element__image" src="./images/elbrus.jpg" alt="Карачево-Черкессия">
+                </div>
+                <div class="element__info-container">
+                  <h2 class="element__name">Эльбрус</h2>
+                  <div class="element__like-container">
+                    <button class="element__like" type="button" aria-label="нравится"></button>
+                  </div>
+                  </div>
+              </figure>
+              <figure class="element">
+                <div class="element__image-container">
+                  <img class="element__image" src="./images/dombay.jpg" alt="Карачево-Черкессия">
+                </div>
+                <div class="element__info-container">
+                  <h2 class="element__name">Домбай</h2>
+                  <div class="element__like-container">
+                    <button class="element__like" type="button" aria-label="нравится"></button>
+                  </div>
+                  </div>
+              </figure>
+              <figure class="element">
+                <div class="element__image-container">
+                  <img class="element__image" src="./images/karachaevo-cherkessiy.jpg" alt="Карачево-Черкессия">
+                </div>
+                <div class="element__info-container">
+                  <h2 class="element__name">Карачаево-Черкессия</h2>
+                  <div class="element__like-container">
+                    <button class="element__like" type="button" aria-label="нравится"></button>
+                  </div>
+                  </div>
+              </figure>
+           </section>
+        </main>
+        <footer class="footer">
+          <p class="footer__copyright"> &COPY; MESTO Russia 2022</p>
+        </footer>
+      </div>
+      <div class="popup__edited-form">
+        <div class="popup__container">
+          <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+          <div class="popup__form-container">
+            <h3 class="popup__title"> Редактировать профиль</h3>
+            <input type="text" placeholder="Имя" class="popup__nameInput">
+            <input type="text" placeholder="Род занятий" class="popup__jobInput">
+            <button class="popup__submit-button">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    <script src='main.js'></script>
+  </body>
+</html>
