@@ -1,5 +1,5 @@
 let infoOpenPopupButton = document.querySelector('.profile__edit-button')
-let popup = document.querySelector('.popup__edited-form')
+let popup = document.querySelector('.popup')
 let popupCloseButton = document.querySelector('.popup__close-button')
 let popupContainer = document.querySelector('.popup__container')
 let popupSubmitButton = document.querySelector('.popup__submit-button')
