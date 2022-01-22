@@ -6,7 +6,7 @@ let popupSubmitButton = document.querySelector('.popup__submit-button')
 let popupName = document.querySelector('.popup__nameInput')
 let popupJob = document.querySelector('.popup__jobInput')
 let profileName = document.querySelector('.profile__name')
-let profileJob = document.querySelector('.profile__position')
+let profileJob = document.querySelector('.profile__job')
 let popupFormField = document.querySelector('.popup__form-container')
 
 // Запишем в поля формы значения страницы
