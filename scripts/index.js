@@ -34,15 +34,23 @@ function setRemoveDefault() {
   closePopup();  
 }
 
+// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
+function formSubmitHandler (evt) {
+  evt.preventDefault();
+  setRemoveDefault();
+  closePopup();
+}
+
 // Обработчики событий
 infoOpenPopupButton.addEventListener('click', openPopup)
 popupCloseButton.addEventListener('click', closePopup)
 popupSubmitButton.addEventListener('click', setRemoveDefault)
-
+popup.addEventListener('submit', formSubmitHandler);
+formSubmitHandler
 // Закрытие попапа нажатием "Enter"
 popup.addEventListener('keypress', function(key) {
-  if (key.keyCode === 13) {
-    setRemoveDefault();
-    closePopup();
-  }
-  });
+    if (key.keyCode === 13) {
+      setRemoveDefault();
+      closePopup();
+    }
+    });
