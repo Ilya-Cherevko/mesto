@@ -16,41 +16,26 @@ function setDefaultPopup() {
 }
 
 // Открытие формы
-function openPopup(event) {
-  event.preventDefault()
-  popup.classList.add('popup__opened')
+function openPopup() {
+  popup.classList.add('popup_opened')
   setDefaultPopup()
 }
 
 // Закрытие формы
 function closePopup() {
-  popup.classList.remove('popup__opened')
+  popup.classList.remove('popup_opened')
 }
 
-// Сохраняем изменения
-function setRemoveDefault() {
+// Сохранение и отпрвка изменений
+// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
+function formSubmitHandler (evt) {
+  evt.preventDefault();
   profileName.textContent = popupName.value;
   profileJob.textContent = popupJob.value;
   closePopup();  
 }
 
-// Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
-function formSubmitHandler (evt) {
-  evt.preventDefault();
-  setRemoveDefault();
-  closePopup();
-}
-
 // Обработчики событий
-infoOpenPopupButton.addEventListener('click', openPopup)
-popupCloseButton.addEventListener('click', closePopup)
-popupSubmitButton.addEventListener('click', setRemoveDefault)
-popup.addEventListener('submit', formSubmitHandler);
-formSubmitHandler
-// Закрытие попапа нажатием "Enter"
-popup.addEventListener('keypress', function(key) {
-    if (key.keyCode === 13) {
-      setRemoveDefault();
-      closePopup();
-    }
-    });
+infoOpenPopupButton.addEventListener('click', openPopup);
+popupCloseButton.addEventListener('click', closePopup);
+popupFormField.addEventListener('submit', formSubmitHandler);

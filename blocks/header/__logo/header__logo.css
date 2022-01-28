@@ -6,3 +6,10 @@
     background-repeat: no-repeat;
     background-position: 50%;
 }
+
+@media screen and (max-width: 550px) {
+    .header__logo {
+        width: 103px;
+        height: 24px;
+      }
+  } 

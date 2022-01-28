@@ -3,17 +3,14 @@
     height: 50px;
     background-image: url(../../../images/ProfileAddButton.svg);
     background-repeat: no-repeat;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0);
     background-position: 50%;
     border: 2px solid #fff;
     box-sizing: border-box;
     margin: auto 0;
     cursor: pointer;
     padding: 0;
-}
-
-.profile__add-button:hover {
-    opacity: .5;
+    border-radius: 2px;
 }
 
 @media screen and (max-width: 700px) {

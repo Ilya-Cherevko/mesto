@@ -9,7 +9,3 @@
     margin: auto 0;
     cursor: pointer;
 }
-
-.element__like:hover {
-    opacity: .5;
-}

@@ -12,7 +12,3 @@
     border: 0;
     cursor: pointer;
 }
-
-.popup__close-button:hover {
-    opacity: .5;
-}

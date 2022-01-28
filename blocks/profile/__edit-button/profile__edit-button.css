@@ -4,13 +4,9 @@
     background-image: url(../../../images/ProfilEditButton.svg);
     background-repeat: no-repeat;
     background-position: 50%;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0);
     border: 1px solid #fff;
     box-sizing: border-box;
     margin: auto 0;
     cursor: pointer;
-}
-
-.profile__edit-button:hover {
-    opacity: .5;
 }
