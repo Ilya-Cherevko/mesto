@@ -7,3 +7,9 @@
     flex-shrink: 0;
     flex-grow: 0;
 }
+
+@media screen and (max-width: 550px) {
+    .element__info-container {
+        padding: 25px 22px 22px 21px;
+      }
+  } 

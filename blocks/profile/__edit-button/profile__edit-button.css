@@ -10,3 +10,10 @@
     margin: auto 0;
     cursor: pointer;
 }
+
+@media screen and (max-width: 550px) {
+    .profile__edit-button {
+        width: 18px;
+        height: 18px;
+      }
+  } 
