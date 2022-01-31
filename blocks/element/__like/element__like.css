@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 
-.link:hover {
+.element__like:hover {
     opacity: .5;
     transition: opacity 1s ease;
  }

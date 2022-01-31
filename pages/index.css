@@ -30,7 +30,5 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/__nameInput/popup__nameInput.css);
-@import url(../blocks/popup/__jobInput/popup__jobInput.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/link/link.css);
