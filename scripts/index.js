@@ -27,7 +27,7 @@ const initialCards = [
 
 
 //Переменные
-let popupEditProfile = document.querySelector('.popup__edit-form');                     // попап редактирования профиля
+let popupEditProfile = document.querySelector('.popup_edit-form');                     // попап редактирования профиля
 let openPopupButton = document.querySelector('.profile__edit-button');                 // попап кнопка редактировать профиль
 let popupCloseButton = document.querySelector('.popup__close-button');                 // закрытие окна редактирования профиля
 let popupName = document.querySelector('.popup__input_profile_name');                  // редактирование профиля - имя
@@ -35,12 +35,12 @@ let popupJob = document.querySelector('.popup__input_profile_job');             
 let profileName = document.querySelector('.profile__name');                            // имя в шапке
 let profileJob = document.querySelector('.profile__job');                              // профессия в шапке
 let cardsList = document.querySelector('.elements');                                   // html ставим сюда
-let poupEditPlace = document.querySelector('.popup__add-form');                         // попап новое место
+let poupEditPlace = document.querySelector('.popup_add-form');                         // попап новое место
 let openProfileButton = document.querySelector('.profile__add-button');                // добавить данные в профиль
 let popupCloseForm = document.querySelector('.popup__close-button_add-form');          // закрытие окна нового места
 let poupPlaceName = document.querySelector('.popup__input_plase_name');                // добавление названия новой картинки
 let poupPlaceLink = document.querySelector('.popup__input_plase_link');                // добавление новой картинки
-let popupBigImage = document.querySelector('.popup__image-form');                   // попап большой картинки
+let popupBigImage = document.querySelector('.popup_image-form');                   // попап большой картинки
 let popupCloseBigImage = document.querySelector('.popup__close-button_image_preview'); // закрытие большой картинки
 let nameBigImage = document.querySelector('.popup__image-big');                        // большая картинка
 let captionBigImage = document.querySelector('.popup__image-caption');                 // подпись большой картинки
