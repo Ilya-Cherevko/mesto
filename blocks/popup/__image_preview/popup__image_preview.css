@@ -1,0 +1,6 @@
+.popup__image_preview {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
