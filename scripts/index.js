@@ -40,7 +40,7 @@ let openProfileButton = document.querySelector('.profile__add-button');         
 let popupCloseForm = document.querySelector('.popup__close-button_add-form');          // закрытие окна нового места
 let poupPlaceName = document.querySelector('.popup__input_plase_name');                // добавление названия новой картинки
 let poupPlaceLink = document.querySelector('.popup__input_plase_link');                // добавление новой картинки
-let popupBigImage = document.querySelector('.popup__image-preview');                   // попап большой картинки
+let popupBigImage = document.querySelector('.popup__preview-image');                   // попап большой картинки
 let popupCloseBigImage = document.querySelector('.popup__close-button_image_preview'); // закрытие большой картинки
 let nameBigImage = document.querySelector('.popup__image-big');                        // большая картинка
 let captionBigImage = document.querySelector('.popup__image-caption');                 // подпись большой картинки
@@ -130,7 +130,7 @@ function addObject(placeInHtml, object) {
 }
 
 // клонировани шаблона карточки и добавление слушателей для карточки
-function creatNewCard(cardTitle, cardPicLink) {
+function creatNewCard(cardName, cardLink) {
   
   // content - берет только внутренности темплэйта
   let cardTemplate = document.querySelector('.item_template').content; 
@@ -139,9 +139,9 @@ function creatNewCard(cardTitle, cardPicLink) {
   let newCard = cardTemplate.querySelector('.element').cloneNode(true); 
   
   // заполним название, alt и src
-  newCard.querySelector('.element__name').textContent = cardTitle; 
-  newCard.querySelector('.element__image').alt = cardTitle; 
-  newCard.querySelector('.element__image').src = cardPicLink;
+  newCard.querySelector('.element__name').textContent = cardName; 
+  newCard.querySelector('.element__image').alt = cardName; 
+  newCard.querySelector('.element__image').src = cardLink;
   
   //слушатели
   newCard.querySelector('.element__trash').addEventListener('click', CardRemove);
