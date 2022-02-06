@@ -67,10 +67,8 @@ profileButtonClosePopup.addEventListener('click', function () {
   closePopup(profileEditPopup);
 });
 
-// Попап добавления нового места. Сначала очищаем поля инпутов и потом открываем попап.
+// Попап добавления нового места
 profileButtonAddPopup.addEventListener('click', function () {
-  // poupPlaceName.value = '';
-  // poupPlaceLink.value = '';
   openPopup(plaseEditPopup);
 }); 
 
@@ -78,17 +76,6 @@ profileButtonAddPopup.addEventListener('click', function () {
 plaseButtonClosePopup.addEventListener('click', function () {
   closePopup(plaseEditPopup);
 });
-
-// Попап превью картинки
-/*function previewCard (event) {
-  // Название места и картинка лежат в разных контейнерах и соответственно соседних DOM узлах,
-  // событие происходит в контейнере с картинкой и как достучаться до контейнера с названием я хз,
-  // поэтому беру название из alt картинки, благо мы сами его туда и засунули
-  captionBigImage.textContent = event.target.alt; 
-  nameBigImage.alt = event.target.alt;
-  nameBigImage.src = event.target.src;
-  openPopup(imagePreviewBigPopup);
-}*/
 
 //Закрытие попапа превью картинки
 imagePreviewBigClosePopup.addEventListener('click', function () {
@@ -109,18 +96,20 @@ function likeCard (event) {
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
 function handleProfileFormSubmit (evt) {
   evt.preventDefault();
+  // Перезапись значения полей профиля
   profileName.textContent = popupName.value;
   profileJob.textContent = popupJob.value;
   closePopup(profileEditPopup);  
 }
 
-// добавление карточек
+// Добавление карточек. После добавления, перед закрытием, поля формы очищаем.
 function handleCardSubmit (evt) {
   evt.preventDefault();
   // передаeм функции значения инпутов попапа
   const newCard = creatNewCard(poupPlaceName.value, poupPlaceLink.value); 
   // добавление новой карточки
   addObject(cardsList, newCard);
+  // очистка полей формы
   poupPlaceName.value = '';
   poupPlaceLink.value = '';
   closePopup(plaseEditPopup);
@@ -131,7 +120,7 @@ function addObject(placeInHtml, object) {
   placeInHtml.prepend(object);
 }
 
-// клонировани шаблона карточки и добавление слушателей для карточки
+// клонировани шаблона карточки, добавление слушателей для карточки и открытие превью картинки карточки
 function creatNewCard(cardName, cardLink) {
   
   // content - берет только внутренности темплэйта
