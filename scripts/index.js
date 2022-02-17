@@ -27,6 +27,7 @@ const initialCards = [
 
 
 //Переменные
+const page = document.querySelector('.page');
 const profileEditPopup = document.querySelector('.popup_edit-form');                            // попап редактирования профиля
 const profileButtonOpenPopup = document.querySelector('.profile__edit-button');                 // попап кнопка редактировать профиль
 const profileButtonClosePopup = document.querySelector('.popup__close-button');                 // закрытие окна редактирования профиля
@@ -45,8 +46,16 @@ const imagePreviewBigClosePopup = document.querySelector('.popup__close-button_i
 const nameBigImage = document.querySelector('.popup__image-big');                               // большая картинка
 const captionBigImage = document.querySelector('.popup__image-caption');                        // подпись большой картинки
 
+
 // открытие попапа
+/*function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}*/
+
 function openPopup(popup) {
+  const popupLayout = popup.querySelector('.popup__layout');
+  popupLayout.addEventListener('click', (event => closePopup(popup)));
+  page.addEventListener('keydown', closePopupEsc);
   popup.classList.add('popup_opened');
 }
 
@@ -54,6 +63,14 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
+
+// закрытие попапа Esc
+const closePopupEsc = (event) => {
+  if (event.key === 'Escape') {
+      const popupOpened = page.querySelector('.popup_opened');
+     closePopup(popupOpened);
+   }
+} 
 
 // Попап редактирования профиля. Сначала заносим данные в поля инпутов и потом открывыем попап профиля.
 profileButtonOpenPopup.addEventListener('click', function () {

@@ -3,6 +3,7 @@
     margin: auto;
     padding: 40px;
     transition: padding 1s linear;
+    z-index: 10;
 }
 
 @media screen and (max-width: 550px) {
