@@ -1,20 +1,10 @@
 .popup__form-field {
     position: relative;
-    margin-bottom: 18px;
     display: flex;
     flex-direction: column;
+    margin-top: 38px;
     margin-bottom: 14px;
 }
-
-.popup__form-field {
-    margin-top: 38px;
-}
-
-.popup__form-field {
-    margin-bottom: 18px;
-}
-
-
 
 @media screen and (max-width: 550px) {
     .popup__form-field {
