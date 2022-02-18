@@ -27,7 +27,7 @@ const initialCards = [
 
 
 //Переменные
-const page = document.querySelector('.page');
+const page = document.querySelector('.page');                                                   // вся страница
 const profileEditPopup = document.querySelector('.popup_edit-form');                            // попап редактирования профиля
 const profileButtonOpenPopup = document.querySelector('.profile__edit-button');                 // попап кнопка редактировать профиль
 const profileButtonClosePopup = document.querySelector('.popup__close-button');                 // закрытие окна редактирования профиля
@@ -45,7 +45,10 @@ const imagePreviewBigPopup = document.querySelector('.popup_image-form');       
 const imagePreviewBigClosePopup = document.querySelector('.popup__close-button_image_preview'); // закрытие большой картинки
 const nameBigImage = document.querySelector('.popup__image-big');                               // большая картинка
 const captionBigImage = document.querySelector('.popup__image-caption');                        // подпись большой картинки
-const popupLayout = document.querySelector('.popup__layout')
+const popupLayout = document.querySelector('.popup__layout');                                   // оверлей
+const disabled = document.querySelector('.popup__submit-button_add-form');                      // кнопка добавления формы
+const cardTemplate = document.querySelector('.item__template').content;                         // константа вынесенная из creatNewCard, content - берет только внутренности темплэйта
+const popups = document.querySelectorAll('.popup');                                             // найдем все попапы
 
 // открытие попапа
 /*function openPopup(popup) {
@@ -53,20 +56,37 @@ const popupLayout = document.querySelector('.popup__layout')
 }*/
 
 function openPopup(popup) {
+  page.addEventListener('click', closePopupOverley);
   page.addEventListener('keydown', closePopupEsc);
   popup.classList.add('popup_opened');
 }
 
 // Закрытие попапа нажатием мышкой в оверлее
-document.addEventListener("mousedown", function (evt) {
+/*document.addEventListener("mousedown", function (evt) {
   if (evt.target.classList.contains("popup__layout")) {
     closePopup(document.querySelector(".popup_opened"));
   }
-});
+});*/
+
+// Закрытие попапа при клике на оверлей и при клике на крестик, эту функцию можно добавлять и убирать слушателем
+function closePopupOverley() {
+// Переберем все попапы и навесим каждому обработчик
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup__layout')) {   // если там куда мы кликаем мышкой есть объект с нужным классом
+            closePopup(popup)                                   // закроем попап при клике на оверлей
+        }
+        //if (evt.target.classList.contains('popup__close-button')) {  // закроем попап при клике на крестике, надо перелопатить код
+        //  closePopup(popup)
+        //}
+    })
+})
+}
 
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  page.removeEventListener('click', closePopupOverley);
   page.removeEventListener('keydown', closePopupEsc);
 }
 
@@ -142,7 +162,6 @@ function handleCardSubmit (evt) {
   poupPlaceLink.value = '';
 
   // Делаем поля добавления новой карточки, когда они пусты при открытии формы - нерабочими 
-  const disabled = document.querySelector('.popup__submit-button_add-form');
   disabled.setAttribute('disabled', true);
   disabled.classList.add('popup__submit-button_disabled');
   
@@ -156,10 +175,7 @@ function addObject(placeInHtml, object) {
 
 // клонировани шаблона карточки, добавление слушателей для карточки и открытие превью картинки карточки
 function creatNewCard(cardName, cardLink) {
-  
-  // content - берет только внутренности темплэйта
-  const cardTemplate = document.querySelector('.item__template').content; 
-  
+    
   // клонирование шаблона карточки в переменную
   const newCard = cardTemplate.querySelector('.element').cloneNode(true); 
   
@@ -174,7 +190,6 @@ function creatNewCard(cardName, cardLink) {
   //слушатели
   newCard.querySelector('.element__trash').addEventListener('click', removeCard);
   newCard.querySelector('.element__like').addEventListener('click', likeCard);
-  /*newImage.addEventListener('click', previewCard);*/
   newImage.addEventListener('click', () => handleCardClick(cardName, cardLink));
   
   // Попап превью картинки теперь здесь
