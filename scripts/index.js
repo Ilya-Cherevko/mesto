@@ -45,6 +45,7 @@ const imagePreviewBigPopup = document.querySelector('.popup_image-form');       
 const imagePreviewBigClosePopup = document.querySelector('.popup__close-button_image_preview'); // закрытие большой картинки
 const nameBigImage = document.querySelector('.popup__image-big');                               // большая картинка
 const captionBigImage = document.querySelector('.popup__image-caption');                        // подпись большой картинки
+const popupLayout = document.querySelector('.popup__layout')
 
 // открытие попапа
 /*function openPopup(popup) {
@@ -52,25 +53,16 @@ const captionBigImage = document.querySelector('.popup__image-caption');        
 }*/
 
 function openPopup(popup) {
-  const popupLayout = popup.querySelector('.popup__layout');
-  popupLayout.addEventListener('click', (() => closePopup(popup))); // Тут я запутался окончательно, функция подключенная по другому не работает, в итоге просто убрал event
-  //page.addEventListener('click', popupLayout);
   page.addEventListener('keydown', closePopupEsc);
   popup.classList.add('popup_opened');
 }
 
-//const popupLayout = () => {
-//  const popupLay = page.querySelector('.popup__layout');
-//  popupLay.addEventListener('click', (() => closePopup()));
-//}
-
-// закрытие попапа по щелчку
-//popup.addEventListener('click', function(event) {
-//   if(event.target === event.currentTarget) {
-//     closePopup()
-//   }
-// })
-
+// Закрытие попапа нажатием мышкой в оверлее
+document.addEventListener("mousedown", function (evt) {
+  if (evt.target.classList.contains("popup__layout")) {
+    closePopup(document.querySelector(".popup_opened"));
+  }
+});
 
 // закрытие попапа
 function closePopup(popup) {
