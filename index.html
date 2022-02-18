@@ -44,7 +44,7 @@
                   <input id="profile-job" name="job" type="text" placeholder="Род занятий" class="popup__input popup__input_profile_job" minlength="2" maxlength="200" required>
                   <span id="profile-job-error" class="popup__input-error profile-job-error"></span>
                 </label>
-                <button type="submit" class="popup__submit-button">Сохранить</button>
+                <button type="submit" class="popup__submit-button popup__submit-button_edit-form">Сохранить</button>
             </fieldset>
           </form>
         </div>
@@ -64,7 +64,7 @@
                 <input id="plase-link" name="link" type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_plase_link" required>
                 <span id="plase-link-error" class="popup__input-error plase-link-error"></span>
               </label>
-              <button type="submit" class="popup__submit-button">Создать</button>
+              <button type="submit" class="popup__submit-button popup__submit-button_add-form">Создать</button>
             </fieldset>
           </form>
         </div>
@@ -78,6 +78,7 @@
             <figcaption class="popup__image-caption">Подпись к картинке</figcaption>
           </figure>
         </div>
+        <div class="popup__layout"></div>
       </section>
       <template class="item__template">
         <article class="element">
@@ -89,6 +90,7 @@
             <h2 class="element__name"></h2>
             <button class="element__like" type="button" aria-label="нравится"></button>
           </div>
+          
         </article>
       </template>
     <script src='./scripts/index.js'></script>

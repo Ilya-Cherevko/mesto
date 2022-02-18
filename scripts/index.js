@@ -46,7 +46,6 @@ const imagePreviewBigClosePopup = document.querySelector('.popup__close-button_i
 const nameBigImage = document.querySelector('.popup__image-big');                               // большая картинка
 const captionBigImage = document.querySelector('.popup__image-caption');                        // подпись большой картинки
 
-
 // открытие попапа
 /*function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -54,17 +53,32 @@ const captionBigImage = document.querySelector('.popup__image-caption');        
 
 function openPopup(popup) {
   const popupLayout = popup.querySelector('.popup__layout');
-  popupLayout.addEventListener('click', (event => closePopup(popup)));
+  popupLayout.addEventListener('click', (() => closePopup(popup))); // Тут я запутался окончательно, функция подключенная по другому не работает, в итоге просто убрал event
+  //page.addEventListener('click', popupLayout);
   page.addEventListener('keydown', closePopupEsc);
   popup.classList.add('popup_opened');
 }
 
+//const popupLayout = () => {
+//  const popupLay = page.querySelector('.popup__layout');
+//  popupLay.addEventListener('click', (() => closePopup()));
+//}
+
+// закрытие попапа по щелчку
+//popup.addEventListener('click', function(event) {
+//   if(event.target === event.currentTarget) {
+//     closePopup()
+//   }
+// })
+
+
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  page.removeEventListener('keydown', closePopupEsc);
 }
 
-// закрытие попапа Esc
+// закрытие попапа Esc, слушатель этого события без проблем навешиваю и снимаю.
 const closePopupEsc = (event) => {
   if (event.key === 'Escape') {
       const popupOpened = page.querySelector('.popup_opened');
@@ -83,6 +97,11 @@ profileButtonOpenPopup.addEventListener('click', function () {
 profileButtonClosePopup.addEventListener('click', function () {
   closePopup(profileEditPopup);
 });
+
+const buttonPlase = () => {
+  button = document.querySelector('.popup__submit-button_add-form')
+  button.classList.add('popup__submit-button_disabled');
+}
 
 // Попап добавления нового места
 profileButtonAddPopup.addEventListener('click', function () {
@@ -129,6 +148,12 @@ function handleCardSubmit (evt) {
   // очистка полей формы
   poupPlaceName.value = '';
   poupPlaceLink.value = '';
+
+  // Делаем поля добавления новой карточки, когда они пусты при открытии формы - нерабочими 
+  const disabled = document.querySelector('.popup__submit-button_add-form');
+  disabled.setAttribute('disabled', true);
+  disabled.classList.add('popup__submit-button_disabled');
+  
   closePopup(plaseEditPopup);
 }
 
@@ -146,7 +171,7 @@ function creatNewCard(cardName, cardLink) {
   // клонирование шаблона карточки в переменную
   const newCard = cardTemplate.querySelector('.element').cloneNode(true); 
   
-  // найдем картинку один раз, а исползуем три )
+  // найдем картинку один раз, а используем три )
   const newImage = newCard.querySelector('.element__image');
   
   // заполним название, alt и src
