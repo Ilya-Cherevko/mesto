@@ -45,7 +45,6 @@ const imagePreviewBigPopup = document.querySelector('.popup_image-form');       
 const imagePreviewBigClosePopup = document.querySelector('.popup__close-button_image_preview'); // закрытие большой картинки
 const nameBigImage = document.querySelector('.popup__image-big');                               // большая картинка
 const captionBigImage = document.querySelector('.popup__image-caption');                        // подпись большой картинки
-const popupLayout = document.querySelector('.popup__layout');                                   // оверлей
 const disabled = document.querySelector('.popup__submit-button_add-form');                      // кнопка добавления формы
 const cardTemplate = document.querySelector('.item__template').content;                         // константа вынесенная из creatNewCard, content - берет только внутренности темплэйта
 const popups = document.querySelectorAll('.popup');                                             // найдем все попапы
@@ -56,19 +55,11 @@ const popups = document.querySelectorAll('.popup');                             
 }*/
 
 function openPopup(popup) {
-  page.addEventListener('click', closePopupOverley);
   page.addEventListener('keydown', closePopupEsc);
   popup.classList.add('popup_opened');
 }
 
-// Закрытие попапа нажатием мышкой в оверлее
-/*document.addEventListener("mousedown", function (evt) {
-  if (evt.target.classList.contains("popup__layout")) {
-    closePopup(document.querySelector(".popup_opened"));
-  }
-});*/
-
-// Закрытие попапа при клике на оверлей и при клике на крестик, эту функцию можно добавлять и убирать слушателем
+// Закрытие попапа при клике на оверлей и при клике на крестик
 function closePopupOverley() {
 // Переберем все попапы и навесим каждому обработчик
 popups.forEach((popup) => {
@@ -83,10 +74,11 @@ popups.forEach((popup) => {
 })
 }
 
+closePopupOverley();
+
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  page.removeEventListener('click', closePopupOverley);
   page.removeEventListener('keydown', closePopupEsc);
 }
 
@@ -110,10 +102,10 @@ profileButtonClosePopup.addEventListener('click', function () {
   closePopup(profileEditPopup);
 });
 
-const buttonPlase = () => {
-  button = document.querySelector('.popup__submit-button_add-form')
-  button.classList.add('popup__submit-button_disabled');
-}
+//const buttonPlase = () => {
+//  button = document.querySelector('.popup__submit-button_add-form')
+//  button.classList.add('popup__submit-button_disabled');
+//}
 
 // Попап добавления нового места
 profileButtonAddPopup.addEventListener('click', function () {
