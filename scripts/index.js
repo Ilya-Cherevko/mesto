@@ -102,11 +102,6 @@ profileButtonClosePopup.addEventListener('click', function () {
   closePopup(profileEditPopup);
 });
 
-//const buttonPlase = () => {
-//  button = document.querySelector('.popup__submit-button_add-form')
-//  button.classList.add('popup__submit-button_disabled');
-//}
-
 // Попап добавления нового места
 profileButtonAddPopup.addEventListener('click', function () {
   openPopup(plaseEditPopup);
