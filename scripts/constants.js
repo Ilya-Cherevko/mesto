@@ -22,7 +22,7 @@ export const popups = document.querySelectorAll('.popup');                      
 export const addCard = plaseEditPopup.querySelector('.popup__form-container');                         //Поля формы новое место для валидации
 export const editForm = profileEditPopup.querySelector('.popup__form-container');                      //Поля формы изменить профиль для валидации
 
-export const enableValidation = {                                                                      //константы для валидации
+export const configForm = {                                                                      //константы для валидации
     formSelector: '.popup__form-container',
     inputSelector: '.popup__input',
     fieldsetList: '.popup__form-fieldset',
@@ -31,3 +31,5 @@ export const enableValidation = {                                               
     inputErrorClass: 'popup__input-error_active',
     inputErrorAdd: 'popup__input-error_border-red',
   }; 
+
+export const formValidators = {}

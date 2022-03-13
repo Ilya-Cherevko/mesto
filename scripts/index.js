@@ -1,24 +1,43 @@
 import Card from "./Card.js"
 import { initialCards } from "./cards.js"
-import { enableValidation, addCard, editForm, page, profileEditPopup, profileButtonOpenPopup, popupName, cardsList, popupJob, profileName, profileJob, plaseEditPopup, profileButtonAddPopup, poupPlaceName, poupPlaceLink, imagePreviewBigPopup, nameBigImage, captionBigImage, disabled, popups } from "./constants.js"
+import { formValidators, configForm, addCard, editForm, page, profileEditPopup, profileButtonOpenPopup, popupName, cardsList, popupJob, profileName, profileJob, plaseEditPopup, profileButtonAddPopup, poupPlaceName, poupPlaceLink, imagePreviewBigPopup, nameBigImage, captionBigImage, popups } from "./constants.js"
 import { FormValidator } from "./FormValidator.js"
 
 //Запуск валидации
-const editProfileValidator = new FormValidator(enableValidation, editForm)
-const addCardValidator = new FormValidator(enableValidation, addCard)
+const editProfileValidator = new FormValidator(configForm, editForm)
+const addCardValidator = new FormValidator(configForm, addCard)
 
 editProfileValidator.enableValidation()
 addCardValidator.enableValidation()
 
+//Запуск валидации - с наскока не пошло, надо копать чуть глубже и дольше
+/*const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  console.log(formList) // тут работает
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(formElement, config) //(ошибка из formvalidatora - Uncaught TypeError: this._form.querySelectorAll is not a function)
+    console.log(validator) // сюда не дошло 
+// получаем данные из атрибута `name` у формы
+    const formName = formElement.getAttribute('name')
+    console.log(formName) // сюда не дошло
+   // вот тут в объект записываем под именем формы
+    formValidators[formName] = validator;
+   validator.enableValidation();
+  });
+};
+
+enableValidation(configForm);*/
+
+
 // Попапы, открытие, закрытие разными способами
 // Открытие попапа
 function openPopup(popup) {
-  page.addEventListener('keydown', closePopupEsc);
+  page.addEventListener('keydown', handleEscKey);
   popup.classList.add('popup_opened');
 }
 
 // Закрытие попапа при клике на оверлей и при клике на крестик
-function closePopupOverley() {
+function handlePopupClose() {
 // Переберем все попапы и навесим каждому обработчик
 popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {
@@ -32,16 +51,16 @@ popups.forEach((popup) => {
 })
 }
 
-closePopupOverley();
+handlePopupClose();
 
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  page.removeEventListener('keydown', closePopupEsc);
+  page.removeEventListener('keydown', handleEscKey);
 }
 
 // закрытие попапа Esc, слушатель этого события навешиваю при открытии и снимаю при закрытии попапа.
-const closePopupEsc = (event) => {
+const handleEscKey = (event) => {
   if (event.key === 'Escape') {
       const popupOpened = page.querySelector('.popup_opened');
      closePopup(popupOpened);
@@ -52,6 +71,7 @@ const closePopupEsc = (event) => {
 profileButtonOpenPopup.addEventListener('click', function () {
   popupName.value = profileName.textContent;
   popupJob.value = profileJob.textContent;
+  editProfileValidator.resetValidation()
   openPopup(profileEditPopup);
 }); 
 
@@ -65,15 +85,9 @@ function handleProfileFormSubmit (evt) {
   closePopup(profileEditPopup);  
 }
 
-// Делаем пустые поля добавления новой карточки, при открытии формы - нерабочими
-function disabledProfileButton() { 
-  disabled.setAttribute('disabled', true);
-  disabled.classList.add('popup__submit-button_disabled');
-}
-
 // Попап добавления нового места
 profileButtonAddPopup.addEventListener('click', function () {
-  disabledProfileButton();
+  addCardValidator.resetValidation()
   openPopup(plaseEditPopup);
 }); 
 
