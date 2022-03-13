@@ -24,7 +24,9 @@
                 </div>
               <button class="profile__add-button link" type="button" aria-label="Добавить"></button>
           </section>
-          <section class="elements"></section>
+          <section class="elements">
+            <!-- Контейнер для добавления карточек -->
+          </section>
         </main>
         <footer class="footer">
           <p class="footer__copyright"> &COPY; MESTO Russia 2022</p>
@@ -32,7 +34,7 @@
       </div>
       <section class="popup popup_edit-form">
         <div class="popup__container">
-          <button type="button" class="popup__close-button link popup__close-button_edit-form" aria-label="Закрыть"></button>
+          <button type="button" class="popup__close-button link" aria-label="Закрыть"></button>
           <form class="popup__form-container" name="form" novalidate>
             <fieldset class="popup__form-fieldset">
               <h3 class="popup__title">Редактировать профиль</h3>
@@ -48,11 +50,11 @@
             </fieldset>
           </form>
         </div>
-        <div class="popup__layout"></div>
+        <div class="popup__overlay"></div>
       </section>
       <section class="popup popup_add-form">
         <div class="popup__container">
-          <button type="button" class="popup__close-button link popup__close-button_add-form" aria-label="Закрыть"></button>
+          <button type="button" class="popup__close-button link" aria-label="Закрыть"></button>
           <form class="popup__form-container" name="form" novalidate>
             <fieldset class="popup__form-fieldset">
               <h3 class="popup__title">Новое место</h3>
@@ -68,19 +70,19 @@
             </fieldset>
           </form>
         </div>
-        <div class="popup__layout"></div>
+        <div class="popup__overlay"></div>
       </section>
       <section class="popup popup_image-form">
         <div class="popup__container">
-          <button type="button" class="popup__close-button link popup__close-button_image_preview" aria-label="Закрыть"></button>
+          <button type="button" class="popup__close-button link" aria-label="Закрыть"></button>
           <figure class="popup__content-container">
             <img class="popup__image-big" src="#" alt="Картинка места">
             <figcaption class="popup__image-caption">Подпись к картинке</figcaption>
           </figure>
         </div>
-        <div class="popup__layout"></div>
+        <div class="popup__overlay"></div>
       </section>
-      <template class="item__template">
+      <template class="item__template" id="card">
         <article class="element">
           <div class="element__image-container">
             <button class="element__trash" type="button" aria-label="Удалить"></button>
@@ -93,8 +95,10 @@
           
         </article>
       </template>
-    <script src='./scripts/index.js'></script>
-    <script src='./scripts/Validate.js'></script>    
+    <!--<script type="module" src='./scripts/Card.js'></script>-->
+    <script type="module" src='./scripts/index.js' defer></script>
+    
+    <!--<script type="module" src='./scripts/Validate.js'></script>-->
   </body>
 </html>
 
