@@ -4,6 +4,7 @@ export default class UserInfo {
         this._aboutElement = document.querySelector(aboutElementSelector);
     }
 
+    // Получение данных пользователи из html
     getUserInfo() {
         const data = {
             name: this._nameElement.textContent,
@@ -12,6 +13,7 @@ export default class UserInfo {
         return data
     }
 
+    // Заполнение данными пользователя полей html
     setUserInfo({ name, about }) {
         this._nameElement.textContent = name
         this._aboutElement.textContent = about

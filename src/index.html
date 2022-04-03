@@ -2,7 +2,6 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <!--<link rel="stylesheet" href="./pages/index.css">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto Russia</title>
     <base target="_blank">
@@ -13,8 +12,9 @@
           <div class="header__logo"></div>
         </header>
         <main class="main">
+
+          <!-- Профиль пользователя -->
           <section class="profile">
-              <!--<img class="profile__avatar" src="<%require('./images/Kusto.jpg')%>" alt="Жак ив Кусто"> -->
               <img class="profile__avatar" src="./images/Kusto.jpg" alt="Жак ив Кусто">
                 <div class="profile__info">
                    <div class="profile__name-container">
@@ -25,14 +25,19 @@
                 </div>
               <button class="profile__add-button link" type="button" aria-label="Добавить"></button>
           </section>
+          
+          <!-- Контейнер для добавления карточек -->
           <section class="elements">
-            <!-- Контейнер для добавления карточек -->
+            <!-- Карточки попадают сюда -->
           </section>
+
         </main>
         <footer class="footer">
           <p class="footer__copyright"> &COPY; MESTO Russia 2022</p>
         </footer>
       </div>
+
+      <!-- Попап изменения профиля -->
       <section class="popup popup_edit-form">
         <div class="popup__container">
           <button type="button" class="popup__close-button link" aria-label="Закрыть"></button>
@@ -53,6 +58,8 @@
         </div>
         <div class="popup__overlay"></div>
       </section>
+
+      <!-- Попап добавления нового места -->
       <section class="popup popup_add-form">
         <div class="popup__container">
           <button type="button" class="popup__close-button link" aria-label="Закрыть"></button>
@@ -60,7 +67,7 @@
             <fieldset class="popup__form-fieldset">
               <h3 class="popup__title">Новое место</h3>
               <label class="popup__form-field">
-                <input id="plase-name" name="name" type="text" placeholder="Название" class="popup__input popup__input_plase_name" minlength="1" maxlength="30" required>
+                <input id="plase-name" name="name" type="text" placeholder="Название" class="popup__input popup__input_plase_name" minlength="2" maxlength="30" required>
                 <span id="plase-name-error" class="popup__input-error plase-name-error"></span>
               </label>
               <label class="popup__form-field">
@@ -73,6 +80,8 @@
         </div>
         <div class="popup__overlay"></div>
       </section>
+
+      <!-- Попап картинки -->
       <section class="popup popup_image-form">
         <div class="popup__container">
           <button type="button" class="popup__close-button link" aria-label="Закрыть"></button>
@@ -83,6 +92,8 @@
         </div>
         <div class="popup__overlay"></div>
       </section>
+      
+      <!-- Шаблон карточки -->
       <template class="item__template" id="card">
         <article class="element">
           <div class="element__image-container">
@@ -93,13 +104,10 @@
             <h2 class="element__name"></h2>
             <button class="element__like" type="button" aria-label="нравится"></button>
           </div>
-          
         </article>
       </template>
-    <!--<script type="module" src='./scripts/Card.js'></script>-->
+
     <script type="module" src='./pages/index.js' defer></script>
-    
-    <!--<script type="module" src='./scripts/Validate.js'></script>-->
   </body>
 </html>
 

@@ -21,22 +21,20 @@ export default class Popup {
         }
     }
 
-    // Уборка слушателей
+    // Снятие слушателей
     _removeEventListeners() {
-        this._popup.removeEventListener('mousedown', this._handlePopupClose);
         document.removeEventListener('keydown', this._handleEscKey);
     }
 
     // Навешивание слушателей
     setEventListeners() {
         this._popup.addEventListener('mousedown', this._handlePopupClose);
-        document.addEventListener('keydown', this._handleEscKey);
     }
 
     // Открытие попапа
     openPopup() {
         this._popup.classList.add('popup_opened');
-        this.setEventListeners()
+        document.addEventListener('keydown', this._handleEscKey);
     }
 
     // Закрытие попапа
