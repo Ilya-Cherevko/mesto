@@ -21,14 +21,14 @@ export default class Popup {
         }
     }
 
-    // Снятие слушателей
-    _removeEventListeners() {
-        document.removeEventListener('keydown', this._handleEscKey);
-    }
-
     // Навешивание слушателей
     setEventListeners() {
         this._popup.addEventListener('mousedown', this._handlePopupClose);
+    }
+
+    // Снятие слушателей
+    _removeEventListeners() {
+        document.removeEventListener('keydown', this._handleEscKey);
     }
 
     // Открытие попапа

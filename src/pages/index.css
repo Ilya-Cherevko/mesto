@@ -2,9 +2,13 @@
 @import url(../vendor/font.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/container/container.css);
+
+/* Хедер */
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/main/main.css);
+
+/* Профиль пользователя */
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
@@ -13,6 +17,9 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__avatar-box/profile__avatar-box.css);
+
+/* Карточка */
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image-container/element__image-container.css);
@@ -23,8 +30,14 @@
 @import url(../blocks/element/__like/element__like.css);
 @import url(../blocks/element/__like_aktive/element__like_aktive.css);
 @import url(../blocks/element/__trash/element__trash.css);
+@import url(../blocks/element/__like-container/element__like-container.css);
+@import url(../blocks/element/__like-counter/element__like-counter);
+
+/* Футер */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+/* Попапы */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -43,4 +56,6 @@
 @import url(../blocks/popup/__content-container/popup__content-container.css);
 @import url(../blocks/popup/__image-big/popup__image-big.css);
 @import url(../blocks/popup/__image-caption/popup__image-caption.css);
+
+/* Плавное затухание элементов при hover */
 @import url(../blocks/link/link.css);

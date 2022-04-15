@@ -14,8 +14,8 @@ export default class FormValidator {
     _showInputError(inputElement, errorMessage) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
         inputElement.classList.add(this._inputErrorAdd);
-        errorElement.textContent = errorMessage;
         errorElement.classList.add(this._inputErrorClass);
+        errorElement.textContent = errorMessage;
     }
 
     // Скрыть ошибки  
@@ -57,6 +57,7 @@ export default class FormValidator {
     // Добавим обаботчики всем полям формы
     _setEventListeners() {
         // здесь были this._inputList и this._buttonElement перенесенные в constructor
+        
         // чтобы проверить состояние кнопки в самом начале
         this._toggleButtonState();
         this._inputList.forEach((inputElement) => {
