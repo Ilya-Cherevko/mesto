@@ -91,14 +91,14 @@ function handleClickOpenProfilePopup() {
 
 //Попап редактирования профиля
 function handleProfileFormSubmit(data) {
-  popupEdit.loadButton(true)
+  popupEdit.renderLoading(true)
   api.editUserInfo(data)
       .then(res => {
           userInfo.setUserInfo(res)
           popupEdit.closePopup()
       })
       .catch(err => console.log("Не удалось изменить данные профиля:", err))
-      .finally(() => popupEdit.loadButton(false))
+      .finally(() => popupEdit.renderLoading(false))
 }
 
 //Попап добавления нового места - открытие
@@ -109,7 +109,7 @@ function handleClickOpenAddPopup() {
 
 // Попап добавления нового места - передача данных и закрытие
 function handleAddFormSubmit(newCard) {
-  popupAdd.loadButton(true)
+  popupAdd.renderLoading(true)
   api.addCard(newCard)
   
       .then(res => {
@@ -117,7 +117,7 @@ function handleAddFormSubmit(newCard) {
           popupAdd.closePopup()
       })
       .catch(err => console.log("Не удалось добавить карточку:", err))
-      .finally(() => popupAdd.loadButton(false, 'add'))
+      .finally(() => popupAdd.renderLoading(false, 'add'))
 }
 
 // Попап аватара - открытие
@@ -128,7 +128,7 @@ function handleClickOpenAvatarPopup() {
 
 // Попап аватара - передача данных и закрытие
 function handleAvatarFormSubmit(data) { 
-  popupAvatar.loadButton(true)
+  popupAvatar.renderLoading(true)
   api.editUserAvatar(data)    // data - url адрес картинки есть
   
       .then((res) => {
@@ -137,7 +137,7 @@ function handleAvatarFormSubmit(data) {
           popupAvatar.closePopup()
       })
       .catch(err => console.log("Не удалось сменить аватар:", err))
-      .finally(() => popupAvatar.loadButton(false))
+      .finally(() => popupAvatar.renderLoading(false))
 }
 
 // Включение валидации форм

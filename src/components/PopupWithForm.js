@@ -24,11 +24,6 @@ export default class PopupWithForm extends Popup {
         this._handleSubmitForm(this._getInputValues())
     }
 
-    // Удаление слушателей событий попапа
-    _removeEventListeners() {
-        super._removeEventListeners()
-    }
-
     // Навешивание слушателей событий
     setEventListeners() {
         super.setEventListeners()
@@ -41,16 +36,12 @@ export default class PopupWithForm extends Popup {
         this._form.reset()
     }
 
-    // Загрузчик надписи на кнопке при загрузке
-    loadButton(isLoading, popup) {
+    // Загрузчик надписи на кнопке при загрузке, buttonText не зашло...
+    renderLoading(isLoading) {
         if (isLoading) {
             this._submitButton.textContent = 'Сохраняем...'
         } else {
-            if (popup === 'add') {
-                this._submitButton.textContent = 'Создать'
-            } else {
-                this._submitButton.textContent = 'Сохранить'
-            }
+            this._submitButton.textContent = 'Сохранить'
         }
     }
 }

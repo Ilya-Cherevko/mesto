@@ -1,7 +1,7 @@
 {
   "name": "mesto",
   "version": "0.0.1",
-  "description": "Восьмая работа проекта \"Место\". Нового функционала проекту не добавляем, занимаемся рефакторингом кода и изменением его структуры.",
+  "description": "Девятая работа проекта \"Место\". Подключаем проект к Api.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve",
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/Ilya-Cherevko/mesto#readme",
   "dependencies": {
-    "jquery": "^3.6.0"
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.6.0",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

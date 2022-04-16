@@ -27,7 +27,7 @@ export default class Popup {
     }
 
     // Снятие слушателей
-    _removeEventListeners() {
+    _removeEscapeListener() {
         document.removeEventListener('keydown', this._handleEscKey);
     }
 
@@ -40,6 +40,6 @@ export default class Popup {
     // Закрытие попапа
     closePopup() {
         this._popup.classList.remove('popup_opened');
-        this._removeEventListeners()
+        this._removeEscapeListener()
     }
 }
